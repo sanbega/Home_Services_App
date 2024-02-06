@@ -66,7 +66,7 @@ const style = StyleSheet.create({
   textNameUSer: {
     fontSize: 20,
     color: Colors.WHITE,
-    fontFamily: "outfit-medium",
+    fontFamily: "titanOne-Regular",
   },
   textInput: {
     padding: 7,

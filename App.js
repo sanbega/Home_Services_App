@@ -36,6 +36,12 @@ export default function App() {
     "outfit-bold": require("./assets/fonts/Outfit-Bold.ttf"),
     "outfit-medium": require("./assets/fonts/Outfit-Medium.ttf"),
     "outfit-regular": require("./assets/fonts/Outfit-Regular.ttf"),
+    "titanOne-Regular": require("./assets/fonts/TitanOne-Regular.ttf"),
+    "alice-Regular": require("./assets/fonts/Alice-Regular.ttf"),
+    "sixtyfour-Regular": require("./assets/fonts/Sixtyfour-Regular.ttf"),
+    "protestRiot-Regular": require("./assets/fonts/ProtestRiot-Regular.ttf"),
+    "titanOne-Regular": require("./assets/fonts/TitanOne-Regular.ttf"),
+    "protestGuerrilla-Regular": require("./assets/fonts/ProtestGuerrilla-Regular.ttf"),
   });
 
   return (

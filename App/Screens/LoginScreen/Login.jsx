@@ -49,7 +49,8 @@ export default function Login() {
         </Text>
 
         <TouchableOpacity style={style.button} onPress={onPress}>
-          <Text style={style.textButton}>Let's Get Started</Text>
+          {/* <Text style={style.textButton}>Let's Get Started</Text> */}
+          <Text style={style.textButton}>Let's go</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -81,15 +82,18 @@ const style = StyleSheet.create({
     fontSize: 27,
     color: Colors.WHITE,
     textAlign: "center",
+    fontFamily: "protestGuerrilla-Regular",
   },
   textProfessional: {
     fontWeight: "bold",
+    fontFamily: "protestGuerrilla-Regular",
   },
   textBets: {
     fontSize: 17,
     color: Colors.WHITE,
     textAlign: "center",
     marginTop: 20,
+    fontFamily: "protestGuerrilla-Regular",
   },
   button: {
     padding: 15,
@@ -101,5 +105,6 @@ const style = StyleSheet.create({
     textAlign: "center",
     fontSize: 17,
     color: Colors.PRIMARY,
+    fontFamily: "sixtyfour-Regular",
   },
 });
