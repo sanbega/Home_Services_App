@@ -1,12 +1,12 @@
 import { View, Text, StyleSheet, Image, TextInput } from "react-native";
 import React from "react";
-import { useUser } from "@clerk/clerk-expo";
+import { useUser } from "@clerk/clerk-expo"; //libreria para traer la informacion del usuario por la url
 import Colors from "../../Utils/Colors";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons"; //libreria para iconos https://icons.expo.fyi/Index
+import { Feather } from "@expo/vector-icons"; //libreria para iconos https://icons.expo.fyi/Index
 
 export default function Header() {
-  const { user, isLoading } = useUser();
+  const { user, isLoading } = useUser(); //funcion para traer informacion del usuario
   return (
     user && (
       <View style={style.container}>
@@ -61,10 +61,12 @@ const style = StyleSheet.create({
   },
   textWelcome: {
     color: Colors.WHITE,
+    fontFamily: "outfit-regular",
   },
   textNameUSer: {
     fontSize: 20,
     color: Colors.WHITE,
+    fontFamily: "outfit-medium",
   },
   textInput: {
     padding: 7,
@@ -73,6 +75,7 @@ const style = StyleSheet.create({
     borderRadius: 8,
     width: "85%",
     fontSize: 16,
+    fontFamily: "outfit-bold",
   },
   searchBarContainer: {
     marginTop: 15,
