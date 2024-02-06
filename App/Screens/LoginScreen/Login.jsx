@@ -4,7 +4,8 @@ import React from "react";
 import Colors from "../../Utils/Colors";
 import { useOAuth } from "@clerk/clerk-expo"; //libreria para la autenticacion con gmail
 import { useWarmUpBrowser } from "../../hooks/warmUpBrowser";
-//esto es para la autenticacion con Gmail
+// esto es para la autenticacion con Gmail
+// stytch libreria para autenticacion
 WebBrowser.maybeCompleteAuthSession();
 //
 export default function Login() {
