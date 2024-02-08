@@ -8,6 +8,7 @@ import ProfileScreen from "../Screens/ProfileScreen/ProfileScreen";
 import { FontAwesome5 } from "@expo/vector-icons"; //libreria para los iconos de los botones de navegacion
 import { FontAwesome } from "@expo/vector-icons"; //libreria para los iconos de los botones de navegacion
 import Colors from "../Utils/Colors";
+import HomeNavigation from "./HomeNavigation";
 
 // en el componente Tab.Navigator se le agrega  screenOptions={{headerShown: false,}} para que quite los encabezados
 const Tab = createBottomTabNavigator();
@@ -21,7 +22,7 @@ export default function TabNavigation() {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeNavigation}
         options={{
           tabBarLabel: ({ color }) => <Text style={style.textTab}>Home</Text>,
           tabBarIcon: ({ color, size }) => (

@@ -1,10 +1,19 @@
 // Aquí estamos agregando los iconos de las categorías
 import React from "react";
-import { Text, View, StyleSheet, FlatList, Image } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import Heading from "../../Components/Heading";
 import Colors from "../../Utils/Colors";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Categories() {
+  const navigation = useNavigation();
   const images = [
     {
       source: require("./../../../assets/images/iconoAseo.png"),
@@ -34,7 +43,14 @@ export default function Categories() {
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
-            <View style={styles.imageContainer}>
+            <TouchableOpacity
+              style={styles.imageContainer}
+              onPress={() =>
+                navigation.push("business-list", {
+                  category: item.name,
+                })
+              }
+            >
               <Image
                 source={item.source}
                 style={styles.image}
@@ -43,7 +59,7 @@ export default function Categories() {
               <Text style={{ fontFamily: "outfit-regular", marginTop: 10 }}>
                 {item?.name}
               </Text>
-            </View>
+            </TouchableOpacity>
           )}
         />
       </View>

@@ -5,6 +5,8 @@ import { NavigationContainer } from "@react-navigation/native"; //libreria para 
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo"; //libreria para la autenticacion con gmail
 import TabNavigation from "./App/Navigations/TabNavigation"; //libreria para la navegacion con botones
 import { useFonts } from "expo-font"; //libreria para trabajar con las fuentes
+import "react-native-gesture-handler";
+
 // Esto es para la autenticacion con Gmail los componentes SignedIn y el componente SignedOut
 // tambien se utilizaron unas librerias para la autenticacion de Gmail
 // en la aplicacion Clerk se crea el proyecto y se sacan las credenciales publishableKey para el componente ClerkProvider
