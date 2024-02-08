@@ -7,7 +7,7 @@ import { useWarmUpBrowser } from "../../hooks/warmUpBrowser";
 // esto es para la autenticacion con Gmail
 // stytch libreria para autenticacion
 WebBrowser.maybeCompleteAuthSession();
-//
+
 export default function Login() {
   //esto es para la autenticacion con Gmail
   useWarmUpBrowser();

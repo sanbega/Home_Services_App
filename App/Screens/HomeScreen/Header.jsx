@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, TextInput } from "react-native";
 import React from "react";
-import { useUser } from "@clerk/clerk-expo"; //libreria para traer la informacion del usuario por la url
+import { useUser } from "@clerk/clerk-expo"; // Librería para obtener la información del usuario a través de una URL
 import Colors from "../../Utils/Colors";
 import { FontAwesome5 } from "@expo/vector-icons"; //libreria para iconos https://icons.expo.fyi/Index
 import { Feather } from "@expo/vector-icons"; //libreria para iconos https://icons.expo.fyi/Index
