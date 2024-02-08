@@ -1,4 +1,3 @@
-// Aquí creamos un Slider con diferentes imágenes sin usar librerías, solo utilizando el componente FlatList
 import React from "react";
 import {
   View,
@@ -11,19 +10,23 @@ import {
 import Colors from "../../Utils/Colors";
 import Heading from "../../Components/Heading";
 
-const Slider = () => {
-  const images = [
-    require("./../../../assets/images/ecomerce.jpeg"),
-    require("./../../../assets/images/ecomerce2.jpeg"),
-    require("./../../../assets/images/ecomerce3.jpeg"),
-    require("./../../../assets/images/ecomerce4.jpeg"),
+export default function BusinessList() {
+  const imagesBusiness = [
+    require("./../../../assets/images/ecomerce5.jpeg"),
+    require("./../../../assets/images/ecomerce6.jpeg"),
+    require("./../../../assets/images/ecomerce7.png"),
+    require("./../../../assets/images/ecomerce8.jpeg"),
   ];
   return (
-    <View style={{ marginTop: 10 }}>
-      <Heading text={"Offers For You"} />
+    <View style={{ marginTop: 20 }}>
+      <Heading
+        text={"Latest Bussiness"}
+        isViewAll={true}
+        style={styles.heading}
+      />
       <FlatList
         style={styles.flatListStyle}
-        data={images}
+        data={imagesBusiness}
         horizontal={true}
         pagingEnabled
         showsHorizontalScrollIndicator={false}
@@ -40,8 +43,7 @@ const Slider = () => {
       />
     </View>
   );
-};
-
+}
 const styles = StyleSheet.create({
   heading: {
     fontFamily: "outfit-regular",
@@ -64,5 +66,3 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width,
   },
 });
-
-export default Slider;
