@@ -1,25 +1,54 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { Entypo } from "@expo/vector-icons";
 import Colors from "../../Utils/Colors";
 import { useUser } from "@clerk/clerk-expo";
+import { useNavigation } from "@react-navigation/native";
+import { MaterialIcons } from "@expo/vector-icons";
+import Login from "../LoginScreen/Login";
+import ContactsIconProfile from "./ContactsIconProfile";
 
 export default function ProfileScreen() {
-  const { user } = useUser();
+  const { user, signOut } = useUser();
+  const navigation = useNavigation();
+  //esto es para logica de salida de la aplicacion
+  const handleLogout = () => {
+    // signOut().then(() => {
+    navigation.navigate(Login); // Suponiendo que 'Auth' es el nombre de la pantalla de inicio de sesión
+  };
   return (
     <View>
       <View
         style={{ padding: 20, paddingTop: 30, backgroundColor: Colors.PRIMARY }}
       >
-        <Text
+        <TouchableOpacity
           style={{
-            fontSize: 30,
-            fontFamily: "outfit-regular",
-            color: Colors.PRIMARY,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
+          onPress={() => navigation.goBack()}
         >
-          Profile
-        </Text>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <MaterialIcons name="arrow-back" size={30} color={Colors.WHITE} />
+            <Text
+              style={{
+                fontFamily: "titanOne-Regular",
+                fontSize: 30,
+                color: Colors.WHITE,
+                marginLeft: 10, // Espacio entre el icono y el texto
+              }}
+            >
+              Profile
+            </Text>
+          </View>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Entypo name="log-out" size={30} color={Colors.WHITE} />
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
         <View
           style={{
             display: "flex",
@@ -46,16 +75,29 @@ export default function ProfileScreen() {
           <Text
             style={{
               fontSize: 20,
-              marginTop: 8,
+              marginLeft: 5,
               fontFamily: "titanOne-Regular",
-              color: Colors.WHITE,
+              color: Colors.BLACK,
+              flex: 1,
+              flexWrap: "wrap",
             }}
           >
             {user?.primaryEmailAddress?.emailAddresses}
           </Text>
         </View>
-        <Entypo name="log-out" size={24} color={Colors.WHITE} />
+      </View>
+      <View style={styles.bottomRight}>
+        <ContactsIconProfile />
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  bottomRight: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    margin: 20,
+  },
+});
