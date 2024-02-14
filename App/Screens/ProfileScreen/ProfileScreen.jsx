@@ -1,23 +1,35 @@
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { Entypo } from "@expo/vector-icons";
-import Colors from "../../Utils/Colors";
+import Colors from "../../Utils/Colors"; // para acceder a los colores
 import { useUser } from "@clerk/clerk-expo";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons } from "@expo/vector-icons";
 import Login from "../LoginScreen/Login";
 import ContactsIconProfile from "./ContactsIconProfile";
+import { useClerk } from "@clerk/clerk-react";
 
 export default function ProfileScreen() {
-  const { user, signOut } = useUser();
+  const { user } = useUser();
+  const { signOut } = useClerk();
   const navigation = useNavigation();
-  //esto es para logica de salida de la aplicacion
-  const handleLogout = () => {
-    // signOut().then(() => {
-    navigation.navigate(Login); // Suponiendo que 'Auth' es el nombre de la pantalla de inicio de sesión
+
+  // Logica para salir de la aplicación
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      navigation.navigate(Login); // Suponiendo que 'Login' es el nombre de la pantalla de inicio de sesión
+    } catch (error) {
+      console.error("Error al cerrar sesión:", error);
+    }
   };
+
   return (
-    <View>
+    <View
+      style={{
+        height: "100%",
+      }}
+    >
       <View
         style={{ padding: 20, paddingTop: 30, backgroundColor: Colors.PRIMARY }}
       >
@@ -44,7 +56,7 @@ export default function ProfileScreen() {
             </Text>
           </View>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity onPress={handleLogout}>
               <Entypo name="log-out" size={30} color={Colors.WHITE} />
             </TouchableOpacity>
           </View>
@@ -86,18 +98,9 @@ export default function ProfileScreen() {
           </Text>
         </View>
       </View>
-      <View style={styles.bottomRight}>
-        <ContactsIconProfile />
-      </View>
+      <ContactsIconProfile />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  bottomRight: {
-    position: "absolute",
-    bottom: 0,
-    right: 0,
-    margin: 20,
-  },
-});
+const styles = StyleSheet.create({});

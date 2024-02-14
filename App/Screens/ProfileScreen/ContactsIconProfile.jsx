@@ -25,8 +25,10 @@ export default function ContactsIconProfile() {
     <View style={styles.container}>
       <TouchableOpacity onPress={handleContactPress}>
         <View style={styles.button}>
-          <FontAwesome6 name="message" size={24} color="black" />
-          <Text style={styles.buttonText}>Contactar</Text>
+          <FontAwesome6 name="message" size={40} color={Colors.BLACK} />
+        </View>
+        <View style={styles.notifications}>
+          <Text style={{ color: Colors.WHITE }}>5</Text>
         </View>
       </TouchableOpacity>
       <ContactsIconProfileScreen
@@ -41,14 +43,38 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     bottom: 30,
-    // alignSelf: "center",
+    right: 40,
   },
   button: {
+    // position: "absolute",
     flexDirection: "row",
-    // alignItems: "center",
-    backgroundColor: Colors.PRIMARY,
+    justifyContent: "center",
+    alignItems: "center",
+    width: 70,
+    height: 70,
+    borderRadius: 99,
+    backgroundColor: Colors.WHITE,
     padding: 10,
-    borderRadius: 5,
+    // Sombreado
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5, // Solo para Android
+  },
+  notifications: {
+    borderRadius: 99,
+    backgroundColor: Colors.PRIMARY,
+    position: "absolute",
+    justifyContent: "center",
+    alignItems: "center",
+    top: 0,
+    right: 0,
+    width: 20,
+    height: 20,
   },
   buttonText: {
     color: "white",
